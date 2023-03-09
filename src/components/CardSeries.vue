@@ -46,4 +46,12 @@ li {
     color: white;
 }
 
+<<<<<<< HEAD
+=======
+// .grid {
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     gap: 10px;
+// }
+>>>>>>> 3547979c9e160095052b0ad935eeec59e3d65a4e
 </style>

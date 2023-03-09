@@ -40,6 +40,10 @@ a{
 
 .grid {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(6, 1fr);
+=======
+    grid-template-columns: repeat(5, 1fr);
+>>>>>>> 3547979c9e160095052b0ad935eeec59e3d65a4e
     gap: 10px;
 }
