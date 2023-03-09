@@ -46,9 +46,9 @@ li {
     color: white;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-}
+// .grid {
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     gap: 10px;
+// }
 </style>
