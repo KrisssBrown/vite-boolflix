@@ -1,13 +1,7 @@
 <template>
-  <div>
-    <Header />
+  <div >
+    <Header @onSearch="fetchItems" />
     <Main />
-
-    
-
-    <main>
-
-    </main>
   </div>
 </template>
 
@@ -15,45 +9,95 @@
 
 <script>
 import Header from './components/Header.vue';
-import axios from 'axios'
-
 import Main from './components/Main.vue';
 
-  export default {
-    components:{
-      Header,
-      Main
+import axios from 'axios'
+import store from './store'
+
+export default {
+  components: {
+    Header,
+    Main
+  },
+
+  data() {
+    return {
+      store,
+    }
+  },
+
+  methods: {
+    fetchItems() {
+      this.fetchFilm()
+      this.fetchSeries()
     },
 
-    data(){
-      return{
-        filmCards: [],
-      }
-    },
-
-    methods:{
-      fetchFilm(){
-        axios.get(` https://api.themoviedb.org/3/search/movie?api_key=73da7b7926084309d0c522cac935636c&query` , {
+    fetchFilm() {
+      const url = this.store.config.MAIN_URI + '/search/movie'
+      axios.get(url, {
         params: {
-          
+          api_key: this.apiKey,
+          query: this.search,
+          // query: 'jurassic',
+          language: 'it-IT'
         }
       }).then((res) => {
-        // this.filmCards = res.data.data
-        console.log(res)
+        const { results } = res.data
+        this.store.movies = results
+        console.log(this.store.movies)
+      }).catch(err => {
+        this.store.movies = []
       })
-      }
     },
 
-    created(){
+    fetchSeries() {
+      const url = this.store.config.MAIN_URI + '/search/tv'
+      axios.get(url, {
+        params: {
+          api_key: this.apiKey,
+          query: this.search,
+          language: 'it-IT'
+        }
+      }).then((res) => {
+        const { results } = res.data
+        this.store.tvs = results
+        console.log(this.store.tvs)
+      }).catch(err => {
+        this.store.movies = []
+      })
+    },
 
-    }
     
-  }
+  },
+
+  computed: {
+    apiKey() {
+      return this.store.config.API_KEY
+    },
+
+    main_URI() {
+      return this.store.config.MAIN_URI
+    },
+
+    search() {
+      return this.store.search
+    },
+
+    moviesEndpoint() {
+      return this.BASE_URI + '/search/movie'
+    }
+  },
+
+  created() {
+    console.log(this.results)
+
+  },
+
+}
 </script>
 
 <!-- ****************************************************************************** -->
 
 <style lang="scss">
 @use './style/general.scss' as *;
-
 </style>

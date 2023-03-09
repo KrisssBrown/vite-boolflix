@@ -7,8 +7,15 @@
 <!-- ****************************************************************************** -->
 
 <script>
+import store from '../store';
+
     export default {
-        
+        data() {
+            return {
+                store,
+                imgUrl: store.config.IMG_URI + store.movies.res.data.poster_path
+            }
+        },
     }
 </script>
 

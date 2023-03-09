@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
 html{
     background-color: black;
+    position: relative;
+}
+
+header{
+    position: sticky;
+    top: 0;
 }
 
 *{
@@ -10,8 +16,9 @@ html{
     font-family: 'Oswald', sans-serif;
 }
 
+
 .container{
-    max-width: 1200px;
+    max-width: 1820px;
     margin: 0 auto;
 }
 

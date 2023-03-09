@@ -1,16 +1,28 @@
 <template>
-    <div>
+    <main class="container">
 
-    </div>
+        <CardsMovie />
+        <CardsSeries />
+
+
+    </main>
 </template>
 
 <!-- ****************************************************************************** -->
 
 <script>
+import store from '../store'
+import CardsMovie from './CardMovie.vue';
+import CardsSeries from './CardSeries.vue';
 export default {
+    components: {
+        CardsMovie,
+        CardsSeries
+    },
+
     data() {
         return {
-
+            store
         }
     },
 }
@@ -18,4 +30,7 @@ export default {
 
 <!-- ****************************************************************************** -->
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+
+</style>
