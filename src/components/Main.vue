@@ -2,6 +2,8 @@
     <main class="container">
 
         <CardsMovie />
+
+
         <CardsSeries />
 
 
@@ -12,8 +14,9 @@
 
 <script>
 import store from '../store'
-import CardsMovie from './CardMovie.vue';
+import CardsMovie from './CardMovie.vue'
 import CardsSeries from './CardSeries.vue';
+
 export default {
     components: {
         CardsMovie,

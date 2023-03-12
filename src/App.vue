@@ -39,7 +39,8 @@ export default {
           api_key: this.apiKey,
           query: this.search,
           // query: 'jurassic',
-          language: 'it-IT'
+          language: 'it-IT',
+          adult: true
         }
       }).then((res) => {
         const { results } = res.data
